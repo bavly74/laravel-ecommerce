@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use  App\Http\Controllers\ItemController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('user.sign-up');
 });
+
+
+Route::resources([
+    'item' => ItemController::class,
+]);
+
+Route::get('/delete/{id}',"App\Http\Controllers\ItemController@destroy");
